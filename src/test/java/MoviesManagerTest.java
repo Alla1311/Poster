@@ -90,4 +90,87 @@ public class MoviesManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
+    @Test
+    public void shouldFindAboveMaxLimit() {
+        MoviesManager manager = new MoviesManager(1);
+        manager.add("Бладшот");
+        manager.add("Вперед");
+        manager.add("Отель Белград");
+        manager.add("Джентельмены");
+        String[] expected = {"Бладшот", "Вперед", "Отель Белград", "Джентельмены"};
+        String[] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldFindMaxLimit() {
+        MoviesManager manager = new MoviesManager(1);
+        manager.add("Бладшот");
+        manager.add("Вперед");
+        manager.add("Отель Белград");
+        manager.add("Джентельмены");
+        String[] expected = {"Джентельмены"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldFindLimit() {
+        MoviesManager manager = new MoviesManager(10);
+        manager.add("Бладшот");
+        manager.add("Вперед");
+        manager.add("Отель Белград");
+        manager.add("Джентельмены");
+        String[] expected = {"Джентельмены", "Отель Белград", "Вперед", "Бладшот"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldMaxLimit() {
+        MoviesManager manager = new MoviesManager(10);
+        manager.add("Бладшот");
+        manager.add("Вперед");
+        manager.add("Отель Белград");
+        manager.add("Джентельмены");
+        manager.add("Человек-невидимка");
+        manager.add("Тролли.Мировой тур");
+        manager.add("Номер один");
+        manager.add("Титаник");
+        manager.add("Дракула");
+        manager.add("Один дома");
+
+        String[] expected = {"Один дома", "Дракула", "Титаник", "Номер один", "Тролли.Мировой тур", "Человек-невидимка", "Джентельмены", "Отель Белград", "Вперед", "Бладшот"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldMax() {
+        MoviesManager manager = new MoviesManager(10);
+        manager.add("Бладшот");
+        manager.add("Вперед");
+        manager.add("Отель Белград");
+        manager.add("Джентельмены");
+        manager.add("Человек-невидимка");
+        manager.add("Тролли.Мировой тур");
+        manager.add("Номер один");
+        manager.add("Титаник");
+        manager.add("Дракула");
+        manager.add("Один дома");
+
+        String[] expected = {"Бладшот", "Вперед", "Отель Белград", "Джентельмены", "Человек-невидимка", "Тролли.Мировой тур", "Номер один", "Титаник", "Дракула", "Один дома"};
+        String[] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
