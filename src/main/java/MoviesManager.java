@@ -10,7 +10,8 @@ public class MoviesManager {
     public MoviesManager() {
         this.limit = 10;
     }
-    public String[] findAll(){
+
+    public String[] findAll() {
         return items;
     }
 
